@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Todo, TodoListService} from './todo-list.service';
 import {Observable} from 'rxjs';
 import {MatCheckboxChange} from '@angular/material/checkbox';
-import {skip, tap} from 'rxjs/operators';
+import {map, skip, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -19,8 +19,12 @@ export class TodoListComponent implements OnInit {
     this.todos$ = this.todoListService.todos$.pipe(skip(1));
   }
 
-  todoStatusChanged(change: MatCheckboxChange, todoId: number): void {
+  updateTodoStatus(change: MatCheckboxChange, id: number): void {
     const completed = change.checked;
-    this.todoListService.updateTodoStatus(todoId, completed).subscribe();
+    this.todoListService.updateTodoStatus(id, completed).subscribe();
+  }
+
+  deleteTodo(id: number): void {
+    this.todoListService.deleteTodo(id).subscribe();
   }
 }

@@ -7,7 +7,6 @@ export interface Todo {
   id: number;
   title: string;
   completed: boolean;
-  deleted: boolean;
 }
 
 @Injectable({
@@ -16,7 +15,7 @@ export interface Todo {
 export class TodoListService {
   private data = {
     loaded: false,
-    todos: []
+    todos: [] as Todo[]
   };
 
   private cache$ = new BehaviorSubject<Todo[]>([]);
@@ -47,6 +46,14 @@ export class TodoListService {
 
     return this.httpClient.put(`/todos/${id}`, {...todo}).pipe(
       tap(_ => this.cache$.next([... this.data.todos]))
+    );
+  }
+
+  deleteTodo(id: number): Observable<any> {
+    this.data.todos = this.data.todos.filter(item => item.id !== id);
+
+    return this.httpClient.delete(`/todos/${id}`).pipe(
+      tap(_ => this.cache$.next([...this.data.todos]))
     );
   }
 }

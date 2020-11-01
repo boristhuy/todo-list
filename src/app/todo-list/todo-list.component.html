@@ -5,7 +5,7 @@
         <div class="todo_list_row" [class.completed]="todo.completed">
           <mat-checkbox class="todo_list_row_checkbox"
                         [checked]="todo.completed"
-                        (change)="todoStatusChanged($event, todo.id)">
+                        (change)="updateTodoStatus($event, todo.id)">
           </mat-checkbox>
           <div class="todo_list_row_item">
             {{ todo.title }}
@@ -19,7 +19,7 @@
                 <mat-icon>edit</mat-icon>
                 <span>Edit</span>
               </button>
-              <button mat-menu-item disabled>
+              <button mat-menu-item (click)="deleteTodo(todo.id)">
                 <mat-icon>delete</mat-icon>
                 <span>Delete</span>
               </button>
