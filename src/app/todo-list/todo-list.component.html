@@ -1,0 +1,31 @@
+<div class="todo_list_container">
+  <mat-list>
+    <div mat-subheader>Tasks</div>
+      <mat-list-item *ngFor="let todo of todos$ | async">
+        <div class="todo_list_row" [class.completed]="todo.completed">
+          <mat-checkbox class="todo_list_row_checkbox"
+                        [checked]="todo.completed"
+                        (change)="todoStatusChanged($event, todo.id)">
+          </mat-checkbox>
+          <div class="todo_list_row_item">
+            {{ todo.title }}
+          </div>
+          <div class="todo_list_row_actions">
+            <button mat-icon-button [matMenuTriggerFor]="actionMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #actionMenu="matMenu">
+              <button mat-menu-item disabled>
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-list-item>
+  </mat-list>
+</div>

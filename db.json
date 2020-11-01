@@ -1,5 +1,22 @@
 {
   "todos": [
-    { "title": "Setup new Angular project"}
+    {
+      "id": 1,
+      "title": "Setup new Angular project",
+      "completed": true,
+      "deleted": false
+    },
+    {
+      "id": 2,
+      "title": "Create todo list component",
+      "completed": false,
+      "deleted": false
+    },
+    {
+      "id": 3,
+      "title": "Commit all changes and push project to Github",
+      "completed": false,
+      "deleted": false
+    }
   ]
 }
