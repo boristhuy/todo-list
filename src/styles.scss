@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .todo_list_container {
-  padding: 16px 32px;
+  padding: 48px 16px;
 }
 
 .todo_list_row {
@@ -24,7 +24,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .todo_list_row_checkbox {
-  margin-right: 64px;
+  margin-right: 48px;
 }
 
 .todo_list_row_item {
@@ -35,3 +35,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-left: auto;
 }
 
+.width_full {
+  width: 100%;
+}

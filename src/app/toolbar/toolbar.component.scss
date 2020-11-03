@@ -1,5 +1,9 @@
 @import '~@angular/material/theming';
 
-.toolbar {
-  @include mat-elevation(4);
+.app_toolbar {
+  @include mat-elevation(3);
+}
+
+.app_toolbar_row {
+  padding-left: 24px;
 }

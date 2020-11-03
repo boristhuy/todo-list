@@ -12,20 +12,30 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {EditTodoDialogComponent} from './edit-todo-dialog/edit-todo-dialog.component';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    EditTodoDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatSidenavModule,
     MatIconModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatToolbarModule

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 
@@ -17,7 +17,6 @@ export class TodoListService {
     loaded: false,
     todos: [] as Todo[]
   };
-
   private cache$ = new BehaviorSubject<Todo[]>([]);
 
   constructor(private httpClient: HttpClient) {}
@@ -46,6 +45,15 @@ export class TodoListService {
 
     return this.httpClient.put(`/todos/${id}`, {...todo}).pipe(
       tap(_ => this.cache$.next([... this.data.todos]))
+    );
+  }
+
+  editTodo(editedTodo: Todo): Observable<any> {
+    let todo = this.data.todos.find(item => item.id === editedTodo.id);
+    todo = {...todo, ...editedTodo};
+
+    return this.httpClient.put(`/todos/${todo.id}`, {...todo}).pipe(
+      tap(_ => this.cache$.next([...this.data.todos]))
     );
   }
 
