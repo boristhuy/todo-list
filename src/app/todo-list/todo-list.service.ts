@@ -39,6 +39,15 @@ export class TodoListService {
     );
   }
 
+  addTodo(newTodo: Todo): Observable<any> {
+    return this.httpClient.post<Todo>('/todos', {...newTodo}).pipe(
+      tap(todo => {
+        this.data.todos.push(todo);
+        this.cache$.next([...this.data.todos]);
+      })
+    );
+  }
+
   updateTodoStatus(id: number, completed: boolean): Observable<any> {
     const todo = this.data.todos.find(item => item.id === id);
     todo.completed = completed;

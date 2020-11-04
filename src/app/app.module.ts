@@ -18,13 +18,15 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     ToolbarComponent,
-    EditTodoDialogComponent
+    EditTodoDialogComponent,
+    AddTodoDialogComponent
   ],
   imports: [
     BrowserModule,
