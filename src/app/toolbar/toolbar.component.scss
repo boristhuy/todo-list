@@ -1,9 +1,20 @@
 @import '~@angular/material/theming';
 
 .app_toolbar {
-  @include mat-elevation(3);
+  @include mat-elevation(5);
+  position: relative;
 }
 
-.app_toolbar_row {
-  padding-left: 24px;
+.app_toolbar_row_bottom {
+  padding-bottom: 28px;
+}
+
+.app_toolbar_add_action {
+  position: absolute;
+  left: 16px;
+  top: 100px;
+}
+
+.app_toolbar_title {
+  padding-left: 72px;
 }

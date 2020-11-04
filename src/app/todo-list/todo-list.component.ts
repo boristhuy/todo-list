@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Todo, TodoListService} from './todo-list.service';
 import {Observable} from 'rxjs';
 import {MatCheckboxChange} from '@angular/material/checkbox';
-import {skip} from 'rxjs/operators';
+import {map, skip} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {EditTodoDialogComponent} from '../edit-todo-dialog/edit-todo-dialog.component';
 
@@ -13,7 +13,8 @@ import {EditTodoDialogComponent} from '../edit-todo-dialog/edit-todo-dialog.comp
 })
 export class TodoListComponent implements OnInit {
 
-  todos$: Observable<Todo[]>;
+  pendingTodos$: Observable<Todo[]>;
+  completedTodos$: Observable<Todo[]>;
 
   constructor(
     private todoListService: TodoListService,
@@ -22,7 +23,15 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todos$ = this.todoListService.todos$.pipe(skip(1));
+    this.pendingTodos$ = this.todoListService.todos$.pipe(
+      skip(1),
+      map(todos => todos.filter(todo => !todo.completed))
+    );
+
+    this.completedTodos$ = this.todoListService.todos$.pipe(
+      skip(1),
+      map(todos => todos.filter(todo => todo.completed))
+    );
   }
 
   updateTodoStatus(change: MatCheckboxChange, todo: Todo): void {

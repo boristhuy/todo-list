@@ -17,6 +17,7 @@ import {EditTodoDialogComponent} from './edit-todo-dialog/edit-todo-dialog.compo
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatButtonModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatDividerModule,
     MatSidenavModule,
     MatIconModule,
     MatInputModule,

@@ -4,37 +4,14 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .todo_list_container {
-  padding: 48px 16px;
+  padding: 64px 16px;
 }
 
-.todo_list_row {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.todo_list_row.completed .todo_list_row_item {
+.mat-line.completed {
   color: rgb(170, 170, 170);
   text-decoration: line-through;
 }
 
-.todo_list_row.completed .mat-checkbox-background {
+.mat-checkbox.completed .mat-checkbox-background {
   background-color: rgb(170, 170, 170);
-}
-
-.todo_list_row_checkbox {
-  margin-right: 48px;
-}
-
-.todo_list_row_item {
-  margin-top: 4px;
-}
-
-.todo_list_row_actions {
-  margin-left: auto;
-}
-
-.width_full {
-  width: 100%;
 }
