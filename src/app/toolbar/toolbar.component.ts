@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {AddTodoDialogComponent} from '../add-todo-dialog/add-todo-dialog.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openAddTodoDialog(): void {
+    this.dialog.open(AddTodoDialogComponent, {
+      width: '500px'
+    });
   }
 
 }

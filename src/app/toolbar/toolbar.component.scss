@@ -12,7 +12,13 @@
 .app_toolbar_add_action {
   position: absolute;
   left: 16px;
-  top: 100px;
+  top: 84px;
+}
+
+@media only screen and (min-width: 600px) {
+  .app_toolbar_add_action {
+    top: 100px;
+  }
 }
 
 .app_toolbar_title {

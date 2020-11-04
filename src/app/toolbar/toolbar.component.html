@@ -1,12 +1,15 @@
 <div class="app_toolbar">
   <mat-toolbar color="primary" class="">
     <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
     </mat-toolbar-row>
     <mat-toolbar-row class="app_toolbar_row_bottom">
       <span class="app_toolbar_title">My Tasks</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <button mat-fab color="accent" class="app_toolbar_add_action">
+  <button mat-fab color="accent" class="app_toolbar_add_action" (click)="openAddTodoDialog()">
     <mat-icon>add</mat-icon>
   </button>
 </div>
