@@ -1,28 +1,22 @@
-<div class="todo_list_container">
+<div class="app_container">
   <mat-list>
     <div mat-subheader>Pending</div>
-    <mat-list-item *ngFor="let todo of pendingTodos$ | async">
-      <ng-container [ngTemplateOutlet]="listItem" [ngTemplateOutletContext]="{todo: todo}"></ng-container>
-    </mat-list-item>
-
-    <mat-divider></mat-divider>
-
-    <div mat-subheader>Completed</div>
-    <mat-list-item *ngFor="let todo of completedTodos$ | async">
+    <mat-list-item *ngFor="let todo of todos$ | async">
       <ng-container [ngTemplateOutlet]="listItem" [ngTemplateOutletContext]="{todo: todo}"></ng-container>
     </mat-list-item>
   </mat-list>
 </div>
 
 <ng-template #listItem let-todo='todo'>
-  <mat-checkbox mat-list-icon [class.completed]="todo.completed"
-    [checked]="todo.completed"
-    (change)="updateTodoStatus($event, todo)">
+  <mat-checkbox mat-list-icon
+                [checked]="todo.completed"
+                [class.completed]="todo.completed"
+                (change)="updateTodoStatus($event, todo)">
   </mat-checkbox>
   <div mat-line [class.completed]="todo.completed">
     {{ todo.title }}
   </div>
-  <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="todo_list_item_action_button">
+  <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="todo_list_item_more_button">
     <mat-icon>more_vert</mat-icon>
   </button>
 
