@@ -113,6 +113,6 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
   }
 
   validate(_: FormControl): void {
-    return !this.form.valid && { invalid: true };
+    return this.form.valid ? null : { invalid: true };
   }
 }
