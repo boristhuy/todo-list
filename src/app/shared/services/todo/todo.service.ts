@@ -2,17 +2,13 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
+import {Todo} from './todo.model';
 
-export interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
 
 @Injectable({
   providedIn: 'root'
 })
-export class TodoListService {
+export class TodoService {
   private data = {
     loaded: false,
     todos: [] as Todo[]
@@ -48,18 +44,14 @@ export class TodoListService {
     );
   }
 
-  updateTodoStatus(id: number, completed: boolean): Observable<any> {
-    const todo = this.data.todos.find(item => item.id === id);
-    todo.completed = completed;
+  updateTodo(editedTodo: Todo): Observable<any> {
+    const index = this.data.todos.findIndex(item => item.id === editedTodo.id);
+    if (index < 0) {
+      return;
+    }
 
-    return this.httpClient.put(`/todos/${id}`, {...todo}).pipe(
-      tap(_ => this.cache$.next([... this.data.todos]))
-    );
-  }
-
-  editTodo(editedTodo: Todo): Observable<any> {
-    let todo = this.data.todos.find(item => item.id === editedTodo.id);
-    todo = {...todo, ...editedTodo};
+    const todo = {...this.data.todos[index], ...editedTodo};
+    this.data.todos[index] = todo;
 
     return this.httpClient.put(`/todos/${todo.id}`, {...todo}).pipe(
       tap(_ => this.cache$.next([...this.data.todos]))

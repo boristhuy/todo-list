@@ -3,17 +3,58 @@
     {
       "id": 1,
       "title": "Setup new Angular project",
-      "completed": true
+      "completed": true,
+      "tags": [
+        {
+          "id": 1,
+          "title": "Personal"
+        }
+      ]
     },
     {
       "id": 2,
-      "title": "Create todo list component",
-      "completed": true
+      "title": "Import Angular Material",
+      "completed": true,
+      "tags": [
+        {
+          "id": 1,
+          "title": "Personal"
+        }
+      ]
     },
     {
       "id": 3,
+      "title": "Create Todo list component",
+      "completed": true,
+      "tags": [
+        {
+          "id": 1,
+          "title": "Personal"
+        }
+      ]
+    },
+    {
+      "title": "Add tags",
+      "tags": [],
+      "completed": true,
+      "id": 4
+    },
+    {
       "title": "Commit all changes and push project to Github",
-      "completed": false
+      "tags": [
+        {
+          "id": 1,
+          "title": "Personal"
+        }
+      ],
+      "completed": false,
+      "id": 5
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "title": "Personal"
     }
   ]
 }

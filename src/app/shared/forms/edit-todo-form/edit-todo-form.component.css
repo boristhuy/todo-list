@@ -1,0 +1,14 @@
+.edit_todo_form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* To prevent the input from resizing when no tag is selected */
+.edit_todo_form_tag_input {
+  height: 80px;
+}
+
+.mat-form-field:not(:last-child) {
+  margin-bottom: 16px;
+}
+

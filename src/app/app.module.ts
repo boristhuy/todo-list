@@ -15,10 +15,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {EditTodoDialogComponent} from './edit-todo-dialog/edit-todo-dialog.component';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-form.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +29,18 @@ import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.componen
     TodoListComponent,
     ToolbarComponent,
     EditTodoDialogComponent,
-    AddTodoDialogComponent
+    AddTodoDialogComponent,
+    EditTodoFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatDialogModule,
     MatDividerModule,
     MatSidenavModule,
@@ -42,7 +48,8 @@ import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.componen
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

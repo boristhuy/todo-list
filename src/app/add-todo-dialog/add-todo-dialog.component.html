@@ -1,18 +1,18 @@
 <h1 mat-dialog-title>Add task</h1>
 <div mat-dialog-content>
-  <form>
-    <mat-form-field class="width_full">
-      <mat-label>Task title</mat-label>
-      <input matInput name="todoTitle" [(ngModel)]="todo.title"/>
-    </mat-form-field>
+  <form [formGroup]="form">
+    <app-edit-todo-form formControlName="todo"></app-edit-todo-form>
   </form>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>
     Close
   </button>
-  <button mat-button mat-dialog-close color="primary"
-    [disabled]="!todo.title"
+  <button
+    mat-button
+    mat-dialog-close
+    color="primary"
+    [disabled]="!form.valid"
     (click)="addTodo()">
     Add
   </button>

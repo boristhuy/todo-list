@@ -2,32 +2,29 @@
   <mat-list>
     <div mat-subheader>Pending</div>
     <mat-list-item *ngFor="let todo of todos$ | async">
-      <ng-container [ngTemplateOutlet]="listItem" [ngTemplateOutletContext]="{todo: todo}"></ng-container>
+      <mat-checkbox
+        mat-list-icon
+        [checked]="todo.completed"
+        [class.completed]="todo.completed"
+        (change)="updateTodoStatus($event, todo)">
+      </mat-checkbox>
+      <div mat-line [class.completed]="todo.completed">
+        {{ todo.title }}
+      </div>
+      <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="todo_list_item_more_button">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #actionMenu="matMenu" xPosition="before" yPosition="below">
+        <button mat-menu-item (click)="openEditTodoDialog(todo)">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="deleteTodo(todo)">
+          <mat-icon>delete</mat-icon>
+          <span>Remove</span>
+        </button>
+      </mat-menu>
     </mat-list-item>
   </mat-list>
 </div>
-
-<ng-template #listItem let-todo='todo'>
-  <mat-checkbox mat-list-icon
-                [checked]="todo.completed"
-                [class.completed]="todo.completed"
-                (change)="updateTodoStatus($event, todo)">
-  </mat-checkbox>
-  <div mat-line [class.completed]="todo.completed">
-    {{ todo.title }}
-  </div>
-  <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="todo_list_item_more_button">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-
-  <mat-menu #actionMenu="matMenu" xPosition="before" yPosition="below">
-    <button mat-menu-item (click)="openEditTodoDialog(todo)">
-      <mat-icon>edit</mat-icon>
-      <span>Edit</span>
-    </button>
-    <button mat-menu-item (click)="deleteTodo(todo)">
-      <mat-icon>delete</mat-icon>
-      <span>Remove</span>
-    </button>
-  </mat-menu>
-</ng-template>

@@ -1,5 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo, TodoListService} from '../todo-list/todo-list.service';
+import {Todo} from '../shared/services/todo/todo.model';
+import {TodoService} from '../shared/services/todo/todo.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
+const newTodoTemplate: Todo = {
+  title: '',
+  tags: [],
+  completed: false
+};
 
 @Component({
   selector: 'app-add-todo-dialog',
@@ -7,17 +15,25 @@ import {Todo, TodoListService} from '../todo-list/todo-list.service';
   styleUrls: ['./add-todo-dialog.component.css']
 })
 export class AddTodoDialogComponent implements OnInit {
+  form: FormGroup;
 
-  todo: Todo = { id: undefined, title: '', completed: false };
-
-  constructor(private todoListService: TodoListService) { }
+  constructor(
+    private todoService: TodoService,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      todo: {
+        title: '',
+        tags: []
+      }
+    });
   }
 
   addTodo(): void {
-    if (this.todo.title) {
-      this.todoListService.addTodo(this.todo).subscribe();
-    }
+    const todoFormValue = this.form.get('todo').value;
+    const newTodo = {...newTodoTemplate, ...todoFormValue};
+    this.todoService.addTodo(newTodo).subscribe();
   }
 }
