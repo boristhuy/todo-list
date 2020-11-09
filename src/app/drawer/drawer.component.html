@@ -1,13 +1,11 @@
 <div class="drawer">
   <div class="navigation">
-    <mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let navigationItem of navigationItems">
-        <button mat-button class="navigation_item" [disabled]="!navigationItem.path">
-          <mat-icon class="navigation_item_icon">{{ navigationItem.icon }}</mat-icon>
-          <span class="navigation_item_text">{{ navigationItem.label }}</span>
-        </button>
-      </mat-list-item>
-    </mat-list>
+    <mat-nav-list role="list">
+      <a mat-list-item class="navigation_item" *ngFor="let item of navigationItems">
+        <mat-icon class="navigation_item_icon">{{ item.icon }}</mat-icon>
+        <span class="navigation_item_text">{{ item.label }}</span>
+      </a>
+    </mat-nav-list>
   </div>
 </div>
 
