@@ -92,7 +92,12 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
 
   addTag(event: MatAutocompleteSelectedEvent): void {
     const selectedTag = event.option.value;
-    (this.tagsControl.value as Tag[]).push(selectedTag);
+    const tags = this.tagsControl.value as Tag[];
+
+    const index = tags.findIndex(tag => tag.id === selectedTag.id);
+    if (index < 0) {
+      tags.push(selectedTag);
+    }
 
     this.tagInput.nativeElement.value = '';
   }
