@@ -9,6 +9,7 @@ import {
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
+  ValidationErrors,
   Validators
 } from '@angular/forms';
 import {Observable, Subject} from 'rxjs';
@@ -112,7 +113,7 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
     this.onTouched = fn;
   }
 
-  validate(_: FormControl): void {
+  validate(_: FormControl): ValidationErrors | null  {
     return this.form.valid ? null : { invalid: true };
   }
 }
