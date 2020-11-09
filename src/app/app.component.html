@@ -1,9 +1,13 @@
-<mat-drawer-container class="app_drawer_container">
-  <mat-drawer #drawer [mode]="drawerMode">
-    <app-drawer></app-drawer>
-  </mat-drawer>
-  <mat-drawer-content>
-    <app-toolbar (menuClick)="toggleDrawer()"></app-toolbar>
-    <app-todo-list></app-todo-list>
-  </mat-drawer-content>
-</mat-drawer-container>
+<header>
+  <app-toolbar (menuClick)="toggleDrawer()"></app-toolbar>
+</header>
+<main>
+  <mat-drawer-container>
+    <mat-drawer #drawer [mode]="drawerMode">
+      <app-drawer></app-drawer>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-todo-list></app-todo-list>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</main>

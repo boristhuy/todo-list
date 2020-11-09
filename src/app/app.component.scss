@@ -1,5 +1,16 @@
-.app_drawer_container {
+main {
+  height: calc(100% - 56px);
+  padding-top: 56px;
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    height: calc(100% - 64px);
+    padding-top: 64px;
+  }
+}
+
+.mat-drawer-container {
   background-color: #ffffff;
   height: 100%;
-  z-index: 1;
 }

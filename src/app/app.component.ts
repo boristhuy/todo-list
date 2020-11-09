@@ -12,7 +12,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(MatDrawer, {static: true})
   private drawer: MatDrawer;
 
-  drawerMode = 'over';
+  drawerMode: 'over' | 'push' | 'side' = 'over';
 
   constructor(private breakpointObserver: BreakpointObserver) {
   }
@@ -31,12 +31,15 @@ export class AppComponent implements AfterViewInit {
         if (result.breakpoints[Breakpoints.WebLandscape]) {
           this.activateDesktopLayout();
         }
+      } else {
+        this.drawerMode = 'over';
+        this.drawer.close();
       }
     });
   }
 
   private activateTabletLayout(): void {
-    this.drawerMode = 'over';
+    this.drawerMode = 'side';
     this.drawer.close();
   }
 

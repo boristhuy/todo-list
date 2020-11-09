@@ -1,11 +1,9 @@
-<div class="app_toolbar">
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="app_toolbar_menu" (click)="menuClick.next()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="app_toolbar_title">Tasks</span>
-  </mat-toolbar>
-  <button mat-fab color="accent" class="app_toolbar_add_todo" (click)="openAddTodoDialog()">
-    <mat-icon>add</mat-icon>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="menu-button" (click)="menuClick.next()">
+    <mat-icon>menu</mat-icon>
   </button>
-</div>
+  <span class="title">Tasks</span>
+</mat-toolbar>
+<button mat-fab color="accent" class="add-button" (click)="openAddTodoDialog()">
+  <mat-icon>add</mat-icon>
+</button>

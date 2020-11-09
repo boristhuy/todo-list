@@ -1,4 +1,4 @@
-<div class="edit_todo_form" [formGroup]="form">
+<div class="form" [formGroup]="form">
   <mat-form-field>
     <mat-label>Task title</mat-label>
     <input
@@ -10,14 +10,13 @@
       formControlName="title"/>
 
     <mat-hint align="end">{{ todoTitle.value.length }} / {{ TODO_TITLE_MAX_LENGTH }}</mat-hint>
-    <mat-hint>*Required</mat-hint>
     <mat-error *ngIf="form.get('title').hasError('required')">
       You actually need to do something...
     </mat-error>
 
   </mat-form-field>
 
-  <mat-form-field class="edit_todo_form_tag_input">
+  <mat-form-field class="tag_input">
     <mat-chip-list #tagList aria-label="Todo tag selection">
       <mat-chip *ngFor="let tag of form.get('tags').value" (removed)="removeTag(tag)">
         {{ tag.title }}

@@ -1,14 +1,17 @@
 @import '~@angular/material/theming';
 
-.app_toolbar {
+.mat-toolbar {
   @include mat-elevation(3);
+  width: 100%;
+  position: absolute;
+  z-index: 999;
 }
 
-.app_toolbar_title {
+.title {
   margin-left: 16px;
 }
 
-.app_toolbar_add_todo {
+.add-button {
   position: absolute;
   right: 16px;
   top: 28px;
@@ -16,13 +19,13 @@
 }
 
 @media only screen and (min-width: 1280px) {
-  .app_toolbar_menu {
+  .menu-button {
     display: none;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .app_toolbar_add_todo {
+  .add-button {
     right: 24px;
     top: 36px;
   }
