@@ -1,0 +1,16 @@
+<div class="app_drawer">
+  <div class="app_drawer_title">
+    <h2>Productivity</h2>
+  </div>
+  <div class="app_drawer_navigation">
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let navigationItem of navigationItems">
+        <button mat-button class="app_drawer_navigation_item" [disabled]="!navigationItem.path">
+          <mat-icon class="app_drawer_navigation_item_icon">{{ navigationItem.icon }}</mat-icon>
+          <span class="app_drawer_navigation_item_text">{{ navigationItem.label }}</span>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AddTodoDialogComponent} from '../add-todo-dialog/add-todo-dialog.component';
 
@@ -8,6 +8,9 @@ import {AddTodoDialogComponent} from '../add-todo-dialog/add-todo-dialog.compone
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+
+  @Output()
+  menuClick = new EventEmitter();
 
   constructor(private dialog: MatDialog) { }
 

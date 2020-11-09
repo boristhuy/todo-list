@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+$completed_color: rgb(170, 170, 170);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -8,10 +9,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-line.completed {
-  color: rgb(170, 170, 170);
+  color: $completed_color;
   text-decoration: line-through;
 }
 
 .mat-checkbox.completed .mat-checkbox-background {
-  background-color: rgb(170, 170, 170);
+  background-color: $completed_color;
 }

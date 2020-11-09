@@ -22,6 +22,7 @@ import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.componen
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-form.component';
+import {DrawerComponent} from './drawer/drawer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-for
     ToolbarComponent,
     EditTodoDialogComponent,
     AddTodoDialogComponent,
-    EditTodoFormComponent
+    EditTodoFormComponent,
+    DrawerComponent
   ],
   imports: [
     BrowserModule,
