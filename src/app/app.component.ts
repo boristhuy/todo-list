@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatDrawer} from '@angular/material/sidenav';
+import {MatSidenav} from '@angular/material/sidenav';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,15 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild(MatDrawer, {static: true})
-  private drawer: MatDrawer;
+  @ViewChild(MatSidenav, {static: true})
+  private sidenav: MatSidenav;
 
-  drawerMode: 'over' | 'push' | 'side' = 'over';
+  sidenavMode: 'over' | 'push' | 'side' = 'over';
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver
+  ) {
   }
 
   ngAfterViewInit(): void {
@@ -32,27 +37,33 @@ export class AppComponent implements AfterViewInit {
           this.activateDesktopLayout();
         }
       } else {
-        this.drawerMode = 'over';
-        this.drawer.close();
+        this.sidenavMode = 'over';
+        this.sidenav.close();
       }
     });
   }
 
   private activateTabletLayout(): void {
-    this.drawerMode = 'side';
-    this.drawer.close();
+    this.sidenavMode = 'over';
+    this.sidenav.close();
   }
 
   private activateDesktopLayout(): void {
     // setTimeout is a hack - without it, this throws an
     // ExpressionHasChangedAfterItWasChecked error for some reasons...
     setTimeout(() => {
-      this.drawerMode = 'side';
-      this.drawer.open();
+      this.sidenavMode = 'side';
+      this.sidenav.open();
     });
   }
 
-  toggleDrawer(): void {
-    this.drawer.toggle();
+  toggleSidenav(): void {
+    this.sidenav.toggle();
+  }
+
+  openAddTodoDialog(): void {
+    this.dialog.open(AddTodoDialogComponent, {
+      width: '500px'
+    });
   }
 }

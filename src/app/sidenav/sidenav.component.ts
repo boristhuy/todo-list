@@ -7,11 +7,11 @@ interface NavigationItem {
 }
 
 @Component({
-  selector: 'app-drawer',
-  templateUrl: './drawer.component.html',
-  styleUrls: ['./drawer.component.scss'],
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.scss'],
 })
-export class DrawerComponent implements OnInit {
+export class SidenavComponent implements OnInit {
 
   readonly navigationItems: NavigationItem[] = [
     { path: 'tasks', label: 'Tasks', icon: 'fact_check' },

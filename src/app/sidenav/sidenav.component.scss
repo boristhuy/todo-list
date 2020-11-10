@@ -1,0 +1,35 @@
+.sidenav_title {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding-left: 16px;
+
+  & h2 {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .sidenav_title {
+    height: 64px;
+  }
+}
+
+.nav_list {
+  margin-top: 24px;
+}
+
+.nav_item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.nav_item_icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.nav_item_text {
+  margin-left: 32px;
+}

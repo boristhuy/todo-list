@@ -1,16 +1,48 @@
-main {
-  height: calc(100% - 56px);
-  padding-top: 56px;
+@import '~@angular/material/theming';
+
+.mat-sidenav-container {
+  height: 100%;
 }
 
-@media only screen and (min-width: 600px) {
-  main {
-    height: calc(100% - 64px);
-    padding-top: 64px;
+.mat-sidenav {
+  padding: 0px 8px;
+  width: 256px;
+}
+
+.add_button_handset, .add_button_web {
+  @include mat-elevation(3);
+  position: fixed;
+  z-index: 999;
+}
+
+.add_button_handset {
+  right: 16px;
+  bottom: 16px;
+}
+
+.add_button_web {
+  display: none;
+}
+
+@media only screen and (min-width: 720px) {
+  .add_button_handset {
+    left: 24px;
+    top: 88px;
   }
 }
 
-.mat-drawer-container {
-  background-color: #ffffff;
-  height: 100%;
+@media only screen and (min-width: 1280px) {
+  .mat-sidenav {
+    width: 320px;
+  }
+
+  .add_button_handset {
+    display: none;
+  }
+
+  .add_button_web {
+    display: block;
+    left: 292px;
+    top: 88px;
+  }
 }

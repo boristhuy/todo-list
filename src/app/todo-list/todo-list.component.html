@@ -1,30 +1,30 @@
-<div class="page-container">
+<div class="container">
   <mat-list role="list">
-    <div mat-subheader>Today</div>
-    <mat-list-item role="listitem" *ngFor="let todo of todos$ | async">
-      <mat-checkbox
-        mat-list-icon
-        [checked]="todo.completed"
-        [class.completed]="todo.completed"
-        (change)="updateTodoStatus($event, todo)">
-      </mat-checkbox>
-      <span [class.completed]="todo.completed">
-        {{ todo.title }}
-      </span>
-      <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="more_button">
-        <mat-icon>more_vert</mat-icon>
-      </button>
+  <div mat-subheader>Today</div>
+  <mat-list-item role="listitem" *ngFor="let todo of todos$ | async">
+    <mat-checkbox
+      mat-list-icon
+      [checked]="todo.completed"
+      [class.completed]="todo.completed"
+      (change)="updateTodoStatus($event, todo)">
+    </mat-checkbox>
+    <span [class.completed]="todo.completed">
+      {{ todo.title }}
+    </span>
+    <button mat-icon-button [matMenuTriggerFor]="actionMenu" class="more_button">
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-      <mat-menu #actionMenu="matMenu" xPosition="before" yPosition="below">
-        <button mat-menu-item (click)="openEditTodoDialog(todo)">
-          <mat-icon>edit</mat-icon>
-          <span>Edit</span>
-        </button>
-        <button mat-menu-item (click)="deleteTodo(todo)">
-          <mat-icon>delete</mat-icon>
-          <span>Remove</span>
-        </button>
-      </mat-menu>
-    </mat-list-item>
-  </mat-list>
+    <mat-menu #actionMenu="matMenu" xPosition="before" yPosition="below">
+      <button mat-menu-item (click)="openEditTodoDialog(todo)">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-menu-item (click)="deleteTodo(todo)">
+        <mat-icon>delete</mat-icon>
+        <span>Remove</span>
+      </button>
+    </mat-menu>
+  </mat-list-item>
+</mat-list>
 </div>

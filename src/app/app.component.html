@@ -1,13 +1,17 @@
-<header>
-  <app-toolbar (menuClick)="toggleDrawer()"></app-toolbar>
-</header>
-<main>
-  <mat-drawer-container>
-    <mat-drawer #drawer [mode]="drawerMode">
-      <app-drawer></app-drawer>
-    </mat-drawer>
-    <mat-drawer-content>
-      <app-todo-list></app-todo-list>
-    </mat-drawer-content>
-  </mat-drawer-container>
-</main>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="sidenavMode">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-toolbar (menuClick)="toggleSidenav()"></app-toolbar>
+    <app-todo-list></app-todo-list>
+    <!-- The reason there are two of this button is due to how stacking works in CSS -->
+    <button mat-fab color="accent" class="add_button_handset" (click)="openAddTodoDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<button mat-fab color="accent" class="add_button_web" (click)="openAddTodoDialog()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -22,7 +22,10 @@ import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.componen
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-form.component';
-import {DrawerComponent} from './drawer/drawer.component';
+import {SidenavComponent} from './sidenav/sidenav.component';
+import {RouterModule} from '@angular/router';
+
+const routes = [];
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import {DrawerComponent} from './drawer/drawer.component';
     EditTodoDialogComponent,
     AddTodoDialogComponent,
     EditTodoFormComponent,
-    DrawerComponent
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import {DrawerComponent} from './drawer/drawer.component';
     MatListModule,
     MatMenuModule,
     MatToolbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,9 +10,6 @@
       formControlName="title"/>
 
     <mat-hint align="end">{{ todoTitle.value.length }} / {{ TODO_TITLE_MAX_LENGTH }}</mat-hint>
-    <mat-error *ngIf="form.get('title').hasError('required')">
-      You actually need to do something...
-    </mat-error>
 
   </mat-form-field>
 
