@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add task</h1>
+<h1 mat-dialog-title>Edit task</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
     <app-edit-todo-form formControlName="todo"></app-edit-todo-form>
@@ -12,8 +12,8 @@
     mat-flat-button
     mat-dialog-close
     color="primary"
-    [disabled]="!form.valid"
-    (click)="addTodo()">
-    Add
+    [disabled]="form.pristine || !form.valid"
+    (click)="editTodo()">
+    Edit
   </button>
 </div>
