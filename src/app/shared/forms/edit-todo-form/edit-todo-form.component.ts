@@ -9,7 +9,8 @@ import {
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  ValidationErrors
+  ValidationErrors,
+  Validators
 } from '@angular/forms';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -65,7 +66,7 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
     this.availableTags$ = this.tagService.tags$;
 
     this.form = this.formBuilder.group({
-      title: [''],
+      title: ['', [Validators.required]],
       tags: ['']
     });
 

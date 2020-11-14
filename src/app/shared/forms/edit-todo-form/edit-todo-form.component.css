@@ -5,7 +5,7 @@
 
 /* To prevent the input from resizing when no tag is selected */
 .tag_input {
-  height: 80px;
+  height: 100px;
 }
 
 .mat-form-field:not(:last-child) {
