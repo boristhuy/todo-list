@@ -1,3 +1,7 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
 .sidenav_title {
   display: flex;
   align-items: center;
@@ -19,11 +23,15 @@
   margin-top: 16px;
 }
 
+@media only screen and (min-width: 960px) {
+  .nav_list {
+    margin-top: 40px;
+  }
+}
+
 .nav_item {
   display: flex;
   align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .nav_item_icon {
@@ -32,4 +40,16 @@
 
 .nav_item_text {
   margin-left: 32px;
+}
+
+.nav_item.active {
+
+  & .mat-list-item-content {
+    background-color: #673ab71f;
+  }
+
+  & .nav_item_icon,
+    .nav_item_text {
+    color: mat-color($mat-deep-purple, 500);
+  }
 }

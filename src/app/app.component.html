@@ -1,17 +1,11 @@
+<app-toolbar (menuClick)="toggleSidenav()" *ngIf="viewMode === 'web'"></app-toolbar>
+
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="sidenavMode">
     <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-toolbar (menuClick)="toggleSidenav()"></app-toolbar>
-    <app-todo-list></app-todo-list>
-    <!-- The reason there are two of this button is due to how stacking works in CSS -->
-    <button mat-fab color="accent" class="add_button_handset" (click)="openAddTodoDialog()">
-      <mat-icon>add</mat-icon>
-    </button>
+    <app-toolbar (menuClick)="toggleSidenav()" *ngIf="viewMode === 'handset'"></app-toolbar>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<button mat-fab color="accent" class="add_button_web" (click)="openAddTodoDialog()">
-  <mat-icon>add</mat-icon>
-</button>

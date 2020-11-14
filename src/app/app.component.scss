@@ -9,40 +9,17 @@
   width: 256px;
 }
 
-.add_button_handset, .add_button_web {
-  @include mat-elevation(3);
-  position: fixed;
-  z-index: 999;
-}
-
-.add_button_handset {
-  right: 16px;
-  bottom: 16px;
-}
-
-.add_button_web {
-  display: none;
-}
-
-@media only screen and (min-width: 720px) {
-  .add_button_handset {
-    left: 24px;
-    top: 88px;
+@media only screen and (min-width: 960px) {
+  .mat-toolbar {
+    position: relative;
+    z-index: 999;
   }
-}
 
-@media only screen and (min-width: 1280px) {
   .mat-sidenav {
     width: 320px;
   }
 
-  .add_button_handset {
-    display: none;
-  }
-
-  .add_button_web {
-    display: block;
-    left: 292px;
-    top: 88px;
+  .mat-sidenav-container {
+    height: calc(100% - 128px);
   }
 }

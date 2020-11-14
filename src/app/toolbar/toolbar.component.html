@@ -3,6 +3,22 @@
     <button mat-icon-button class="menu_button" (click)="menuClick.next()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="title">Tasks</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="title">
+    <span>Productivity</span>
+    <button
+      mat-mini-fab
+      color="accent"
+      class="action_button_handheld"
+      (click)="openAddTodoDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="accent"
+      class="action_button_web"
+      (click)="openAddTodoDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

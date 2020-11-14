@@ -1,57 +1,49 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {AddTodoDialogComponent} from './add-todo-dialog/add-todo-dialog.component';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
 
   @ViewChild(MatSidenav, {static: true})
   private sidenav: MatSidenav;
 
+  viewMode: 'handset' | 'web' = 'handset';
   sidenavMode: 'over' | 'push' | 'side' = 'over';
 
-  constructor(
-    private dialog: MatDialog,
-    private breakpointObserver: BreakpointObserver
-  ) {
+  constructor(private breakpointObserver: BreakpointObserver) {
   }
 
   ngAfterViewInit(): void {
     this.breakpointObserver.observe([
-      Breakpoints.TabletLandscape,
-      Breakpoints.WebLandscape
+      Breakpoints.Medium,
+      Breakpoints.Large
     ])
     .subscribe(result => {
       if (result.matches) {
-        if (result.breakpoints[Breakpoints.TabletLandscape]) {
-          this.activateTabletLayout();
-        }
-
-        if (result.breakpoints[Breakpoints.WebLandscape]) {
-          this.activateDesktopLayout();
-        }
+        this.activateWebLayout();
       } else {
-        this.sidenavMode = 'over';
-        this.sidenav.close();
+        this.activateHandsetLayout();
       }
     });
   }
 
-  private activateTabletLayout(): void {
+  private activateHandsetLayout(): void {
+    this.viewMode = 'handset';
     this.sidenavMode = 'over';
     this.sidenav.close();
   }
 
-  private activateDesktopLayout(): void {
+  private activateWebLayout(): void {
     // setTimeout is a hack - without it, this throws an
     // ExpressionHasChangedAfterItWasChecked error for some reasons...
     setTimeout(() => {
+      this.viewMode = 'web';
       this.sidenavMode = 'side';
       this.sidenav.open();
     });
@@ -59,11 +51,5 @@ export class AppComponent implements AfterViewInit {
 
   toggleSidenav(): void {
     this.sidenav.toggle();
-  }
-
-  openAddTodoDialog(): void {
-    this.dialog.open(AddTodoDialogComponent, {
-      width: '500px'
-    });
   }
 }

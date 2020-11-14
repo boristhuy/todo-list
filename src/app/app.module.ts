@@ -25,7 +25,17 @@ import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-for
 import {SidenavComponent} from './sidenav/sidenav.component';
 import {RouterModule} from '@angular/router';
 
-const routes = [];
+const routes = [
+  {
+    path: '',
+    redirectTo: '/tasks',
+    pathMatch: 'full'
+  },
+  {
+    path: 'tasks',
+    component: TodoListComponent
+  }
+];
 
 @NgModule({
   declarations: [

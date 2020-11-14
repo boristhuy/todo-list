@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 interface NavigationItem {
   path: string;
@@ -10,16 +10,41 @@ interface NavigationItem {
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SidenavComponent implements OnInit {
 
   readonly navigationItems: NavigationItem[] = [
-    { path: 'tasks', label: 'Tasks', icon: 'fact_check' },
-    { path: '', label: 'Calendar', icon: 'today' },
-    { path: '', label: 'Tags', icon: 'label' },
-    { path: '', label: 'Statistics', icon: 'insert_chart' },
-    { path: '', label: 'Trash', icon: 'delete' },
-    { path: '', label: 'About', icon: 'info' }
+    {
+      path: '/tasks',
+      label: 'Tasks',
+      icon: 'fact_check'
+    },
+    {
+      path: '/calendar',
+      label: 'Calendar',
+      icon: 'today'
+    },
+    {
+      path: '/tags',
+      label: 'Tags',
+      icon: 'label'
+    },
+    {
+      path: '/stats',
+      label: 'Statistics',
+      icon: 'insert_chart'
+    },
+    {
+      path: '/trash',
+      label: 'Trash',
+      icon: 'delete'
+    },
+    {
+      path: '/about',
+      label: 'About',
+      icon: 'info'
+    }
   ];
 
   constructor() { }
