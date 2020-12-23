@@ -24,6 +24,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {EditTodoFormComponent} from './shared/forms/edit-todo-form/edit-todo-form.component';
 import {SidenavComponent} from './sidenav/sidenav.component';
 import {RouterModule} from '@angular/router';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const routes = [
   {
@@ -58,11 +59,12 @@ const routes = [
     MatChipsModule,
     MatDialogModule,
     MatDividerModule,
-    MatSidenavModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatSidenavModule,
+    MatSnackBarModule,
     MatToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)

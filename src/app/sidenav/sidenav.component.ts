@@ -36,11 +36,6 @@ export class SidenavComponent implements OnInit {
       icon: 'insert_chart'
     },
     {
-      path: '/trash',
-      label: 'Trash',
-      icon: 'delete'
-    },
-    {
       path: '/about',
       label: 'About',
       icon: 'info'

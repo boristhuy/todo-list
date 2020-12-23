@@ -1,6 +1,14 @@
-import {AfterViewInit, Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {NotificationService} from './shared/services/notification/notification.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
+const DEFAULT_SNACKBAR_ACTION = 'DISMISS';
+
+const DEFAULT_SNACKBAR_CONFIG = {
+  duration: 3000
+};
 
 @Component({
   selector: 'app-root',
@@ -8,7 +16,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSidenav, {static: true})
   private sidenav: MatSidenav;
@@ -16,7 +24,21 @@ export class AppComponent implements AfterViewInit {
   viewMode: 'handset' | 'web' = 'handset';
   sidenavMode: 'over' | 'push' | 'side' = 'over';
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private notificationService: NotificationService,
+    private snackBar: MatSnackBar,
+    private breakpointObserver: BreakpointObserver
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.notificationService.notification$.subscribe(notification => {
+      const message = notification.message;
+      const action = notification.action || DEFAULT_SNACKBAR_ACTION;
+      const config = Object.assign((notification.config || {}), DEFAULT_SNACKBAR_CONFIG);
+
+      this.snackBar.open(message, action, config);
+    });
   }
 
   ngAfterViewInit(): void {
