@@ -42,6 +42,15 @@
   margin-left: 32px;
 }
 
+.nav_item.disabled {
+  pointer-events: none;
+
+  & .nav_item_icon,
+    .nav_item_text {
+    color: #aaaaaa;
+  }
+}
+
 .nav_item.active {
 
   & .mat-list-item-content {

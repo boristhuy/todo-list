@@ -4,6 +4,7 @@ interface NavigationItem {
   path: string;
   label: string;
   icon: string;
+  disabled?: boolean;
 }
 
 @Component({
@@ -23,22 +24,26 @@ export class SidenavComponent implements OnInit {
     {
       path: '/calendar',
       label: 'Calendar',
-      icon: 'today'
+      icon: 'today',
+      disabled: true
     },
     {
       path: '/tags',
       label: 'Tags',
-      icon: 'label'
+      icon: 'label',
+      disabled: true
     },
     {
       path: '/stats',
       label: 'Statistics',
-      icon: 'insert_chart'
+      icon: 'insert_chart',
+      disabled: true
     },
     {
       path: '/about',
       label: 'About',
-      icon: 'info'
+      icon: 'info',
+      disabled: true
     }
   ];
 

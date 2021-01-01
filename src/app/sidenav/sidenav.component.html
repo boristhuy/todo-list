@@ -2,7 +2,8 @@
   <mat-nav-list role="list">
     <a mat-list-item class="nav_item" *ngFor="let item of navigationItems"
        [routerLink]="item.path"
-       routerLinkActive="active">
+       routerLinkActive="active"
+       [class.disabled]="item.disabled">
       <mat-icon class="nav_item_icon">{{ item.icon }}</mat-icon>
       <span class="nav_item_text">{{ item.label }}</span>
     </a>
