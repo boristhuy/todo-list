@@ -7,7 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 const DEFAULT_SNACKBAR_ACTION = 'DISMISS';
 
 const DEFAULT_SNACKBAR_CONFIG = {
-  duration: 3000
+  duration: 5000
 };
 
 @Component({

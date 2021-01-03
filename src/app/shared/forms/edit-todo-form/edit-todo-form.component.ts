@@ -15,6 +15,7 @@ import {
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {TagService} from '../../services/tag/tag.service';
+import {MatChipInputEvent} from '@angular/material/chips';
 
 @Component({
   selector: 'app-edit-todo-form',
@@ -90,7 +91,23 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
     this.tagsControl.setValue(tags);
   }
 
-  addTag(event: MatAutocompleteSelectedEvent): void {
+  addTag(event: MatChipInputEvent): void {
+    const {input, value} = event;
+    const tags = this.tagsControl.value as Tag[];
+
+    if ((value || '').trim()) {
+      const index = tags.findIndex(tag => tag.title === value);
+      if (index < 0) {
+        tags.push({title: value});
+      }
+    }
+
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  selectTag(event: MatAutocompleteSelectedEvent): void {
     const selectedTag = event.option.value;
     const tags = this.tagsControl.value as Tag[];
 

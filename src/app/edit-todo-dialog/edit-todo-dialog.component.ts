@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Todo} from '../shared/services/todo/todo.model';
 import {TodoService} from '../shared/services/todo/todo.service';
-import {TagService} from '../shared/services/tag/tag.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 interface DialogData {
@@ -20,7 +19,6 @@ export class EditTodoDialogComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private tagService: TagService,
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) { }

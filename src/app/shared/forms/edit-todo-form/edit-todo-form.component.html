@@ -15,7 +15,7 @@
 
   <mat-form-field class="tag_input">
     <mat-chip-list #tagList aria-label="Todo tag selection">
-      <mat-chip *ngFor="let tag of form.get('tags').value" (removed)="removeTag(tag)">
+      <mat-chip *ngFor="let tag of tagsControl.value" (removed)="removeTag(tag)">
         {{ tag.title }}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
@@ -23,10 +23,11 @@
         #tagInput
         placeholder="Tags"
         [matChipInputFor]="tagList"
-        [matAutocomplete]="auto"/>
+        [matAutocomplete]="auto"
+        (matChipInputTokenEnd)="addTag($event)">
 
     </mat-chip-list>
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addTag($event)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectTag($event)">
       <mat-option *ngFor="let tag of availableTags$ | async" [value]="tag">
         {{ tag.title }}
       </mat-option>
