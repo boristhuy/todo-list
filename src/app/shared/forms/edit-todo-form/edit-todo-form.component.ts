@@ -105,6 +105,8 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
     if (input) {
       input.value = '';
     }
+
+    this.tagsControl.updateValueAndValidity();
   }
 
   selectTag(event: MatAutocompleteSelectedEvent): void {
@@ -117,6 +119,8 @@ export class EditTodoFormComponent implements OnInit, OnDestroy, ControlValueAcc
     }
 
     this.tagInput.nativeElement.value = '';
+
+    this.tagsControl.updateValueAndValidity();
   }
 
   registerOnChange(fn): void {
