@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {AddTodoDialogComponent} from '../add-todo-dialog/add-todo-dialog.component';
+import {AddTodoDialogComponent} from '../todo-list/add-todo-dialog/add-todo-dialog.component';
 
 @Component({
   selector: 'app-toolbar',

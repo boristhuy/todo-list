@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {Todo} from '../shared/services/todo/todo.model';
-import {TodoService} from '../shared/services/todo/todo.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {TodoService} from '../../shared/services/todo/todo.service';
+import {Todo} from '../../shared/services/todo/todo.model';
 
 interface DialogData {
   todo: Todo;

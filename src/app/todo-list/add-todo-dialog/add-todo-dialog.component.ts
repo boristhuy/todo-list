@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo} from '../shared/services/todo/todo.model';
-import {TodoService} from '../shared/services/todo/todo.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Todo} from '../../shared/services/todo/todo.model';
+import {TodoService} from '../../shared/services/todo/todo.service';
 
 const newTodoTemplate: Todo = {
   title: '',

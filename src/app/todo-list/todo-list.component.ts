@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {MatCheckboxChange} from '@angular/material/checkbox';
 import {MatDialog} from '@angular/material/dialog';
-import {EditTodoDialogComponent} from '../edit-todo-dialog/edit-todo-dialog.component';
 import {TodoService} from '../shared/services/todo/todo.service';
 import {Todo} from '../shared/services/todo/todo.model';
 import {NotificationService} from '../shared/services/notification/notification.service';
+import {EditTodoDialogComponent} from './edit-todo-dialog/edit-todo-dialog.component';
 
 @Component({
   selector: 'app-todo-list',
