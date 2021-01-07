@@ -1,11 +1,13 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/todos",
-      "/tags"
+      "/api"
     ],
     target: "http://localhost:3000",
-    secure: false
+    secure: false,
+    pathRewrite: {
+      "^/api": ""
+    }
   }
 ]
 
